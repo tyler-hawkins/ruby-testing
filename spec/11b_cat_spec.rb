@@ -38,14 +38,20 @@ describe Cat do
 
   # Write a test using the second shared_example to test that cat responds to
   # talk ('meow').
-  context '' do
+  subject(:cat) { described_class.new("Waldo", "Tabby", "Orange") }
+  context 'when cat talks' do
+	it 'says "meow"' do
+		expect(cat.talk).to eq("meow")
+	end
   end
 
   # remove the 'x' before running this test
-  xit 'is not hungry' do
+  it 'is not hungry' do
+	expect(cat).to_not be_hungry
   end
 
   # remove the 'x' before running this test
-  xit 'is hiding' do
+  it 'is hiding' do
+	expect(cat).to be_hiding
   end
 end
